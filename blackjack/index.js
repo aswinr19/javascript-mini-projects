@@ -1,4 +1,8 @@
-let player = {}
+let player = {
+	name:'',
+	chips:100
+
+}
 let cards =[]
 let sum = 0
 let hasBlackJack = false
@@ -9,6 +13,8 @@ let messageEl = document.getElementById("message-el")
 let cardsEl = document.getElementById("cards-el")
 let sumEl = document.getElementById("sum-el")
 let playerEl = document.getElementById("player-el")
+let contentEl = document.getElementById("content-el")
+let modalEl = document.getElementById("modal-el")
 
 function getRandomCard(){
 
@@ -73,3 +79,19 @@ function newCard(){
 	}
 }
 
+function getModal(){
+	contentEl.style.display = "none"
+	modalEl.style.display = "block"
+
+}
+
+setTimeout(getModal,500);
+
+function getName(){
+	let name = document.getElementById("input-el")
+	player.name = name.value
+	name.value = ''
+	modalEl.style.display = "none"
+	contentEl.style.display = "block"
+	playerEl.textContent = "hello " + player.name + ", you have $" + player.chips + "left!"
+}
