@@ -5,7 +5,7 @@ const saveTabBtn = document.getElementById("save-tab-btn")
 const deleteBtn = document.getElementById("delete-btn")
 const ulEl= document.getElementById("ul-el")
 
-const leadsFromLocalStorage =  JSON.parse( localStorage.getItems("myLeads") )
+const leadsFromLocalStorage =  JSON.parse( localStorage.getItem("myLeads") )
 
 if(leadsFromLocalStorage){
 	myLeads = leadsFromLocalStorage
@@ -13,15 +13,21 @@ if(leadsFromLocalStorage){
 }
 
 inputBtn.addEventListener("click",function(){
-	
-	localStorage.setItem = JSON.stringify(myLeads)
-	myLeads.push(inputEl.value)
+	myLeads.push(inputEl.value)	
+	localStorage.setItem("myLeads" , JSON.stringify(myLeads))
 	inputEl.value = ""
 	render(myLeads)
 })	
 
 saveTabBtn.addEventListener("click",function(){
 	
+})
+
+deleteBtn.addEventListener("click",function(){
+
+	localStorage.clear()
+	myLeads = []
+	render(myLeads)
 })
 
 function render(leads){
