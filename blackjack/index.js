@@ -9,12 +9,13 @@ let hasBlackJack = false
 let isAlive = false
 let message = ""
 
-let messageEl = document.getElementById("message-el")
-let cardsEl = document.getElementById("cards-el")
-let sumEl = document.getElementById("sum-el")
-let playerEl = document.getElementById("player-el")
-let contentEl = document.getElementById("content-el")
-let modalEl = document.getElementById("modal-el")
+const messageEl = document.getElementById("message-el")
+const cardsEl = document.getElementById("cards-el")
+const  sumEl = document.getElementById("sum-el")
+const  playerEl = document.getElementById("player-el")
+const contentEl = document.getElementById("content-el")
+const modalEl = document.getElementById("modal-el")
+const newCardBtn = document.getElementById("new-card-btn")
 
 function getRandomCard(){
 
@@ -38,7 +39,8 @@ function startGame(){
 	let secondCard = getRandomCard()
 	cards = [firstCard,secondCard]
 	sum = firstCard+secondCard
-	
+	newCardBtn.classList.remove("btn-disabled")
+
 	renderGame()
 }
 
@@ -57,10 +59,12 @@ function renderGame(){
 	}else if(sum === 21){
 		message = "You've got BlackJack!"
 		hasBlackJack = true
+		newCardBtn.classList.add("btn-disabled")
 	}
 	else{
 		message = "You are out of the game!"
 		isAlive = false
+		newCardBtn.classList.add("btn-disabled")
 	}
 
 	messageEl.textContent = message
@@ -93,5 +97,5 @@ function getName(){
 	name.value = ''
 	modalEl.style.display = "none"
 	contentEl.style.display = "block"
-	playerEl.textContent = "hello " + player.name + ", you have $" + player.chips + "left!"
+	playerEl.textContent = "hello " + player.name + ", you have $" + player.chips + " left!"
 }

@@ -1,10 +1,30 @@
 body{
 	font-family : Areal, sans-serif;
-	text-align: center
 	color:white;
 	font-weight: bold;
+	background-color:green;
+	color:white;
 }
 h1{
 	color: goldenrod;
+	display:block;
+}
+
+#message-el{
+	font-style:italic;
+}
+button{
+	margin:3px;
+	padding:10px 20px;
+	color:green;
+	background-color:goldenrod;
+	border:none;
+	font-weight:bold;
+}
+.btn-disabled{
+	opacity:50%;
+}
+input{
+	padding:10px;
 }
 

@@ -5,19 +5,19 @@
 		<title>Blackjack</title>
 	</head>
 	<body>
-		<h1>Blackjack</h1>
+		<h1>Blackjack</h1> 
 		<div id="content-el">
 		<p id="message-el">Want to play a round?</p>
 		<p id="cards-el">Cards:</p>
 		<p id="sum-el">Sum:</p>
 		<button onclick="startGame()">START GAME</button>
-		<button onclick="newCard()">NEW CARD</button>
+		<button id="new-card-btn" class="btn-disabled"   onclick="newCard()">NEW CARD</button>
 		<p id="player-el">
 		</p>
 		</div>
 		<div id="modal-el">
 			<label for="input-el">Enter player name</label></br>
-			<input id="input-el"/>
+			<input id="input-el" type="text"/>
 			<button onclick="getName()">Enter</button>
 		</div>
 			 
