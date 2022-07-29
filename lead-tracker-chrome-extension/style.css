@@ -13,12 +13,18 @@ body{
 
 }
 
-#input-btn{
+button{
 	padding: 5px 10px;
 	background-color: #5f9341;
 	color: #ffffff;
 	font-weight: bold;
-	border:none;
+	border: 1px solid #5f9341;
+}
+
+#delete-btn{
+	background-color : #ffffff;
+	color: #5f9341;
+	
 }
 
 ul{
