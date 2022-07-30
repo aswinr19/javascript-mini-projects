@@ -33,7 +33,8 @@ function getRandomCard(){
 }
 
 function startGame(){
-
+	
+	hasBlackJack = false
 	isAlive = true
 	let firstCard = getRandomCard()
 	let secondCard = getRandomCard()
@@ -57,7 +58,7 @@ function renderGame(){
 	if(sum <= 20){
 		message = "Do you want to draw a new card ? "
 	}else if(sum === 21){
-		message = "You've got BlackJack!"
+		message = "You've got BlackJack! 🎉🎉"
 		hasBlackJack = true
 		newCardBtn.classList.add("btn-disabled")
 	}
