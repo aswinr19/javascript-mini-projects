@@ -1,38 +1,41 @@
-//console.log("hello world!")
+//get city name
+//use city name to lookup weather
+//fetch needed things from weather info
+//display weather details
+
+const errorEl = document.getElementById("error-el")
 const inputEl = document.getElementById("input-el")
 const submitBtn = document.getElementById("submit-btn")
 const weatherEl = document.getElementById("weather-el")
 
-let defaultCity = "london"
-let city = inputEl.value
+errorEl.innerHTML = `<p> </p>`
+
 let weatherInfo = null
 let apiKey = "0948f20a73a2b3003cd577539adef7fc"
 
-async function fetchData(cityName){
-	const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
-	const data = await response.json()
-	console.log(data.weather[0].description)
-	return data
+function fetchWeather(cityName){
+	fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
+		.then((res) => res.json())
+		.then((data) => renderWeather(data))
+		.catch((err) => console.log(err))
+}
+
+function renderWeather(data){
+	weatherEl.innerHTML = `<p> ${data.weather[0].description} </p>`
+	console.log(data.weather[0])
+}
+//fetchWeather("london")
+
+submitBtn.addEventListener("click",function(){
+
+	errorEl.innerHTML = `<p>   </p>`
+
+	if(inputEl.value){
+		fetchWeather(inputEl.value)
+	}
+	else {
+		errorEl.innerHTML  = `<p>Please enter a city name</p>`
 	}
 
- fetchData("london")
-
-
-function checkWeather(city){
-
 }
-
-function render(){
-
-
-}
-
-	
-// fetch('http://example.com/movies.json')
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
-
-
-
-
-//https://api.openweathermap.org/data/2.5/weather?q={city name}&appid=0948f20a73a2b3003cd577539adef7fc
+)
