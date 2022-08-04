@@ -7,8 +7,9 @@ body{
 }
 
 h1{
-	margin-top: 20px;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
+	margin-top: 50px;
+	color: #a2d2ff;
 }
 #submit-btn{
 	padding: 10px 20px;
@@ -21,8 +22,12 @@ h1{
 }
 
 #input-el{
-	padding: 5px;
+	padding: 10px;
 	margin: 5px;
-	width: 30%;
+	font-size: 20px;
+	text-align: center;
+}
+#input-el:hover {
+	border: 1px soild #a2d2ff;
 }
 
