@@ -1,5 +1,5 @@
 
-const errorEl = document.getElementById("error-el")
+const infoEl = document.getElementById("info-el")
 const inputEl = document.getElementById("input-el")
 const submitBtn = document.getElementById("submit-btn")
 const weatherImg = document.getElementById("weather-img")
@@ -7,55 +7,71 @@ const weatherDesc = document.getElementById("weather-description")
 const weatherLoc = document.getElementById("weather-location")
 const weatherTemp = document.getElementById("weather-temprature")
 const weatherHum = document.getElementById("weather-humidity")
-const weather = document.querySelector(".weather")
-const content = document.querySelector(".content")
+const weatherEl = document.querySelector(".weather")
+const contentEl = document.querySelector(".content")
+const backBtn = document.getElementById("back-btn")
 
-weather.display = "none"
-
-let weatherInfo = null
 let apiKey = "0948f20a73a2b3003cd577539adef7fc"
 
 function fetchWeather(cityName){
 	fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
 		.then((res) => res.json())
-		.then((data) => renderWeather(data))
-		.catch((err) => console.log(err))
+		.then((data) => onSuccess(data))
+		.catch((err) => renderError(err))
 }
 
-function renderWeather(data){
-	content.style.display = "none"
-	weather.style.display = "block"
-	errorEl.innerHTML = ""
+function onSuccess(data){
 
 	if(data.cod == "404"){
-		errorEl.innerHTML = "Please enter a valid city name" 
-	}else{
+		err = "Please enter a valid city name!"
+		renderError(err)
+	}
+	else{
+		const description = data.weather[0].description
+		const temprature = data.main.temp
+		const humidity = data.main.humidity
+		const city = data.name
+		const country = data.sys.country
 
-		if(data.weather.main == "Clouds"){
-			weatherImg.setAttribute('src','/icons/cloud.svg')
-		}
-		else if(data.weather.main == "Rain"){
-			weatherImg.setAttribute('src','/icons/rain.svg')
-		}
-	weatherDesc.innerHTML = ` ${data.weather[0].description}  `
-	weatherLoc.innerHTML = ` ${data.name} , ${data.sys.country} `
-	weatherTemp.innerHTML = `${data.main.temp} `
-	weatherHum.innerHTML = `${data.main.humidity}`
-		console.log(data)
+		renderWeather(description,temprature,humidity,city,country)
 	}
 }
-//fetchWeather("london")
+function renderError(err){
+	
+	if(err){
+		infoEl.classList.add("err")
+		infoEl.textContent = err
+	}
+}
+
+function renderWeather(desc,temp,humid,city,country){
+
+	infoEl.textContent = ""
+	contentEl.style.display = "none"
+	weatherEl.style.display = "block"
+	weatherDesc.textContent = desc
+	weatherLoc.textContent = `${city} , ${country}`
+	weatherTemp.textContent = temp
+	weatherHum.textContent = humid
+}
+
 
 submitBtn.addEventListener("click",function(){
 
-	errorEl.innerHTML = "Fetching weather data..."
-	weatherDesc.innerHTML = ""
+	infoEl.textContent = "Fetching weather data..."
+	infoEl.classList.add("wait")
+	
 	if(inputEl.value){
 		fetchWeather(inputEl.value)
 	}
 	else {
-		errorEl.innerHTML  = `<p>Please enter a city name</p>`
-	}
-
+		err = "Please enter a city name!"
+		renderError(err)
+}
 }
 )
+
+backBtn.addEventListener("click", function(){
+	weatherEl.style.display = "none"
+	contentEl.style.display = "block"
+})
