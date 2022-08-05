@@ -13,7 +13,7 @@ const content = document.querySelector(".content")
 weather.display = "none"
 
 let weatherInfo = null
-let apiKey = "0948f20a73a2b3003cd577539adef7fc"
+let apiKey = ""
 
 function fetchWeather(cityName){
 	fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
