@@ -2,7 +2,9 @@ body{
 	margin: 0px;
 	padding: 0px;
 	min-width: 400px;
+	min-height: 550px;
 	font-family: 'Poppins', sans-serif;
+	font-size: 17px;
 	text-align: center;
 }
 
@@ -12,18 +14,21 @@ h1{
 	color: #a2d2ff;
 }
 #submit-btn{
-	padding: 10px 20px;
+	padding: 10px ;
 	border : none;
 	font-weight: bold;
-	margin: 5px;
+	width: 82.5%;
 	color: #ffffff;
 	background-color: #a2d2ff;
-	border-radius: 5px;
 }
 
+#submit-btn:hover{
+	background-color:#81a8cc;
+}
 #input-el{
 	padding: 10px;
-	margin: 5px;
+	margin-bottom: 10px;
+	width: 80%;
 	font-size: 20px;
 	text-align: center;
 }
@@ -31,6 +36,26 @@ h1{
 	border: 1px soild #a2d2ff;
 }
 
+#back-btn{
+	color: #81a8cc;
+}
 .weather{
 	display: none;
+}
+
+#weather-img{
+	height: 100px;
+}
+
+#weather-temprature{
+
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.err{
+	color:red;
+}
+.wait{
+	color:green;
 }

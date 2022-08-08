@@ -27,39 +27,57 @@ function onSuccess(data){
 		renderError(err)
 	}
 	else{
+		const id = data.weather[0].id
 		const description = data.weather[0].description
-		const temprature = data.main.temp
+		const temprature = data.main.temp - 273.15
 		const humidity = data.main.humidity
 		const city = data.name
 		const country = data.sys.country
 
-		renderWeather(description,temprature,humidity,city,country)
+		renderWeather(description,id,temprature,humidity,city,country)
 	}
 }
 function renderError(err){
 	
 	if(err){
+
+		infoEl.classList.remove("wait")
 		infoEl.classList.add("err")
 		infoEl.textContent = err
 	}
 }
 
-function renderWeather(desc,temp,humid,city,country){
+function renderWeather(desc,id,temp,humid,city,country){
 
 	infoEl.textContent = ""
 	contentEl.style.display = "none"
 	weatherEl.style.display = "block"
+
+	if(id == 800){
+		weatherImg.src = "icons/clear.svg";
+	}else if(id >= 200 && id <= 232){
+		weatherImg.src = "icons/storm.svg";  
+	}else if(id >= 600 && id <= 622){
+		weatherImg.src = "icons/snow.svg";
+	}else if(id >= 701 && id <= 781){
+		weatherImg.src = "icons/haze.svg";
+	}else if(id >= 801 && id <= 804){
+		weatherImg.src = "icons/cloud.svg";
+	}else if((id >= 500 && id <= 531) || (id >= 300 && id <= 321)){
+		weatherImg.src = "icons/rain.svg";
+	}
+
 	weatherDesc.textContent = desc
 	weatherLoc.textContent = `${city} , ${country}`
-	weatherTemp.textContent = temp
-	weatherHum.textContent = humid
+	weatherTemp.textContent = `${temp.toFixed(1)} C`
+	weatherHum.textContent = ` ${humid} % humidity `
 }
 
 
 submitBtn.addEventListener("click",function(){
 
-	infoEl.textContent = "Fetching weather data..."
 	infoEl.classList.add("wait")
+	infoEl.textContent = "Fetching weather data..."
 	
 	if(inputEl.value){
 		fetchWeather(inputEl.value)
@@ -68,10 +86,13 @@ submitBtn.addEventListener("click",function(){
 		err = "Please enter a city name!"
 		renderError(err)
 }
+
 }
 )
 
 backBtn.addEventListener("click", function(){
 	weatherEl.style.display = "none"
 	contentEl.style.display = "block"
+	inputEl.value = ""
+
 })
