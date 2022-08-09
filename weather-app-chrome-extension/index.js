@@ -11,6 +11,7 @@ const weatherEl = document.querySelector(".weather")
 const contentEl = document.querySelector(".content")
 const backBtn = document.getElementById("back-btn")
 
+
 let apiKey = "0948f20a73a2b3003cd577539adef7fc"
 
 function fetchWeather(cityName){

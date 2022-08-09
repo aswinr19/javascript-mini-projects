@@ -17,7 +17,7 @@ h1{
 	padding: 10px ;
 	border : none;
 	font-weight: bold;
-	width: 82.5%;
+	width: 81%;
 	color: #ffffff;
 	background-color: #a2d2ff;
 }
@@ -42,6 +42,7 @@ h1{
 }
 .weather{
 	display: none;
+
 }
 
 #weather-img{
@@ -56,6 +57,7 @@ h1{
 #weather-location{
 	font-style: italic;
 }
+
 .err{
 	color:red;
 }
