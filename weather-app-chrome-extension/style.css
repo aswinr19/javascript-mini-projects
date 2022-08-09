@@ -38,6 +38,7 @@ h1{
 
 #back-btn{
 	color: #81a8cc;
+	cursor: pointer;
 }
 .weather{
 	display: none;
@@ -52,7 +53,9 @@ h1{
 	font-size: 40px;
 	font-weight: bold;
 }
-
+#weather-location{
+	font-style: italic;
+}
 .err{
 	color:red;
 }
