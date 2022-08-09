@@ -69,9 +69,10 @@ function renderWeather(desc,id,temp,humid,city,country){
 	}
 
 	weatherDesc.textContent = desc
-	weatherLoc.innerHTML = `<img src="pin.png" > ${city} , ${country}`
+	weatherLoc.innerHTML = `<img src="icons/pin.png" > ${city} , ${country}`
+
 	weatherTemp.innerHTML = `${temp.toFixed(1)} &deg; C`
-	weatherHum.innerHTML = `<img src="hum.png" > ${humid} % `
+	weatherHum.innerHTML = `<img src="icons/hum.png" > ${humid} % `
 }
 
 
