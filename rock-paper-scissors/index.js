@@ -37,25 +37,25 @@ function generateRandomNumber(){
 function getResult(){
 
 	if(userChoice === computerChoice){
-		result = "It's a draw"
+		result = " It's a draw"
 	}
 	else if(userChoice == "rock" && computerChoice == "paper"){
-		result = "You've lost"
+		result = " You've lost :("
 	}
 	else if(userChoice == "paper" && computerChoice == "scissors"){
-		result = "You've lost"
+		result = " You've lost :("
 	}
 	else if(userChoice == "scissors" &&  computerChoice == "rock"){
-		result = "You've lost"
+		result = " You've lost :("
 	}
 	else if(userChoice == "rock" && computerChoice == "scissors"){
-		result = "You've won!"
+		result = " You've won!"
 	}
 	else if(userChoice == "paper" && computerChoice == "rock"){
-		result = "You've won!"
+		result = " You've won!"
 	}
 	else if(userChoice == "scissors" && computerChoice == "paper"){
-		result = "You've won!"
+		result = " You've won!"
 	}
 
 	resultEl.innerHTML = result

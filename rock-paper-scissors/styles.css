@@ -1,0 +1,47 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: poppins;
+	text-align: center;
+}
+
+h1{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#rock{
+	background-color: #ffca3a;
+}
+
+#rock:hover{
+	background-color: #ffbe0b;
+}
+
+#paper:hover{
+	background-color: #55a630;
+}
+
+#scissors:hover{
+	background-color: #227c9d;
+}
+
+
+
+#paper{
+	background-color: #8ac926;
+}
+#scissors{
+	background-color: #1982c4;
+}
+
+button{
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 15px;
+	padding : 10px 20px;
+	border: none;
+	border-radius: 3px;
+	width: 10%;
+}
