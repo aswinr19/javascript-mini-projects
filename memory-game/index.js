@@ -127,17 +127,29 @@ const score = document.getElementById("score");
 const tries = document.getElementById("tries");
 
 let count = 0;
-
 let selectedPokeball = [];
-
 let selectedPokeballId = [];
-
 let openedPokeball = [];
 
 pokemon.sort(() => 0.5 - Math.random());
 
-pokemon.sort(() => 0.5 - Math.random());
 // console.log(pokemon)
+
+
+
+function restartGame() {
+  pokemon.sort(() => 0.5 - Math.random());
+  grid.innerHTML = "";
+  score.textContent = "";
+  tries.textContent = "";
+  let count = 0;
+  let selectedPokeball = [];
+  let selectedPokeballId = [];
+  let openedPokeball = [];
+  createBoard();
+}
+
+
 
 function createBoard() {
   for (let i = 0; i < pokemon.length; i++) {
@@ -151,13 +163,19 @@ function createBoard() {
 
 createBoard();
 
+
+
 function renderScore() {
   score.textContent = openedPokeball.length;
 
   if (openedPokeball.length === 10) {
     alert("You won!");
+    restartGame();
   }
 }
+
+
+
 function checkForMatch() {
   const cards = document.querySelectorAll("img");
 
@@ -182,6 +200,8 @@ function checkForMatch() {
   selectedPokeball = [];
   selectedPokeballId = [];
 }
+
+
 
 function flipCard() {
   let id = this.getAttribute("data-id");
