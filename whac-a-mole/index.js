@@ -27,14 +27,15 @@ function randomSquare(){
 
 }
 
+function increaseScore(square){
+	if(square.id == hitPosition){
+		score++
+		scoreEl.textContent = score
+		console.log("hit")
+	}
+}
 squares.forEach( square => {
-	square.addEventListener("mousedown" , function(){
-		if(square.id == hitPosition){
-			score++
-			scoreEl.textContent = score
-			console.log("hit")
-		}
-	})
+	square.addEventListener("mousedown" ,increaseScore(square))
 })
 
 function moveMole(){
@@ -51,6 +52,10 @@ function countDown(){
 		alert("GAME OVER! Your'e score is "+ score)
 		clearInterval(timer)
 		clearInterval(timerId)
+
+		squares.forEach( square => {
+			square.removeEventListener("mousedown",increaseScore)
+		})
 	}
 }
 
