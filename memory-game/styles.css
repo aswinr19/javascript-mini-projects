@@ -24,3 +24,6 @@ img{
 	height: 190px;
 }
 
+.shake{
+	animation: shake 0.65s;
+}

@@ -1,4 +1,4 @@
-const data = [
+const pokemon = [
   {
     name: "Articuno",
     img: "images/articuno.png",
@@ -40,87 +40,114 @@ const data = [
     img: "images/herdier.png",
   },
   {
-    name: "Kecleon",
-    img: "images/kecleon.png",
+    name: "Articuno",
+    img: "images/articuno.png",
   },
   {
-    name: "Krokorok",
-    img: "images/krokorok.png",
+    name: "Bulbasaur",
+    img: "images/bulbasaur.png",
   },
   {
-    name: "Lapras",
-    img: "images/lapras.png",
+    name: "Butterfree",
+    img: "images/butterfree.png",
   },
   {
-    name: "Meowth",
-    img: "images/meowth.png",
+    name: "Chansey",
+    img: "images/chansey.png",
   },
   {
-    name: "Minun",
-    img: "images/minun.png",
+    name: "Charizard",
+    img: "images/charizard.png",
   },
   {
-    name: "Nidoqueen",
-    img: "images/nidoqueen.png",
+    name: "Dragonair",
+    img: "images/dragonair.png",
   },
   {
-    name: "Octillery",
-    img: "images/octillery.png",
+    name: "Dragonite",
+    img: "images/dragonite.png",
   },
   {
-    name: "Persian",
-    img: "images/persian.png",
+    name: "Flareon",
+    img: "images/flareon.png",
   },
   {
-    name: "Phanpy",
-    img: "images/phanpy.png",
+    name: "Fletchling",
+    img: "images/fletchling.png",
   },
   {
-    name: "Piplup",
-    img: "images/piplup.png",
+    name: "Herdier",
+    img: "images/herdier.png",
   },
-  {
-    name: "Popplio",
-    img: "images/popplio.png",
-  },
-  {
-    name: "Pyroar",
-    img: "images/pyroar.png",
-  },
-  {
-    name: "Sandshrew",
-    img: "images/sandshrew.png",
-  },
-  {
-    name: "Shinx",
-    img: "images/shinx.png",
-  },
-  {
-    name: "Sneasel",
-    img: "images/sneasel.png",
-  },
-  {
-    name: "Solgaleo",
-    img: "images/solgaleo.png",
-  },
-  {
-    name: "Zapdos",
-    img: "images/zapdos.png",
-  },
+  // {
+  //   name: "Kecleon",
+  //   img: "images/kecleon.png",
+  // },
+  // {
+  //   name: "Krokorok",
+  //   img: "images/krokorok.png",
+  // },
+  // {
+  //   name: "Lapras",
+  //   img: "images/lapras.png",
+  // },
+  // {
+  //   name: "Meowth",
+  //   img: "images/meowth.png",
+  // },
+  // {
+  //   name: "Minun",
+  //   img: "images/minun.png",
+  // },
+  // {
+  //   name: "Nidoqueen",
+  //   img: "images/nidoqueen.png",
+  // },
+  // {
+  //   name: "Octillery",
+  //   img: "images/octillery.png",
+  // },
+  // {
+  //   name: "Persian",
+  //   img: "images/persian.png",
+  // },
+  // {
+  //   name: "Phanpy",
+  //   img: "images/phanpy.png",
+  // },
+  // {
+  //   name: "Piplup",
+  //   img: "images/piplup.png",
+  // },
+  // {
+  //   name: "Popplio",
+  //   img: "images/popplio.png",
+  // },
+  // {
+  //   name: "Pyroar",
+  //   img: "images/pyroar.png",
+  // },
+  // {
+  //   name: "Sandshrew",
+  //   img: "images/sandshrew.png",
+  // },
+  // {
+  //   name: "Shinx",
+  //   img: "images/shinx.png",
+  // },
+  // {
+  //   name: "Sneasel",
+  //   img: "images/sneasel.png",
+  // },
+  // {
+  //   name: "Solgaleo",
+  //   img: "images/solgaleo.png",
+  // },
+  // {
+  //   name: "Zapdos",
+  //   img: "images/zapdos.png",
+  // },
 ];
-
-data.sort(() => 0.5 - Math.random());
-
-// console.log(data);
-
-let pokemon = [];
-
-for (let i = 0; i < 10; i++) {
-  pokemon.push(data[i]);
-  pokemon.push(data[i]);
-}
-
-// console.log(pokemon);
 
 const grid = document.getElementById("grid");
 const score = document.getElementById("score");
@@ -135,8 +162,6 @@ pokemon.sort(() => 0.5 - Math.random());
 
 // console.log(pokemon)
 
-
-
 function restartGame() {
   pokemon.sort(() => 0.5 - Math.random());
   grid.innerHTML = "";
@@ -148,8 +173,6 @@ function restartGame() {
   let openedPokeball = [];
   createBoard();
 }
-
-
 
 function createBoard() {
   for (let i = 0; i < pokemon.length; i++) {
@@ -163,8 +186,6 @@ function createBoard() {
 
 createBoard();
 
-
-
 function renderScore() {
   score.textContent = openedPokeball.length;
 
@@ -173,8 +194,6 @@ function renderScore() {
     restartGame();
   }
 }
-
-
 
 function checkForMatch() {
   const cards = document.querySelectorAll("img");
@@ -200,8 +219,6 @@ function checkForMatch() {
   selectedPokeball = [];
   selectedPokeballId = [];
 }
-
-
 
 function flipCard() {
   let id = this.getAttribute("data-id");
