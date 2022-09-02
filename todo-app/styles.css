@@ -2,3 +2,39 @@ body , div {
     padding: 0;
     margin: 0;
 }
+
+body{
+    font-family: 'Quicksand', sans-serif;
+    background-color: #00b4d8;
+}
+
+button,input{
+    font-family: 'Quicksand', sans-serif;
+}
+
+#main{
+    display: grid;
+    background-color: #ffffff;
+    grid-template-columns: repeat(5,1fr);
+}
+
+button{
+    background-color: #00b4d8;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px; 
+   
+      
+}
+input{
+    font-size: large;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+#items-el > li{
+    color:#000000;
+    list-style: none;
+}
