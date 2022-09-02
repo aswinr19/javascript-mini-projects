@@ -6,19 +6,29 @@ body , div {
 body{
     font-family: 'Quicksand', sans-serif;
     background-color: #00b4d8;
+   
 }
 
 button,input{
     font-family: 'Quicksand', sans-serif;
 }
 
-#main{
-    display: grid;
-    background-color: #ffffff;
-    grid-template-columns: repeat(5,1fr);
+h2{
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bolder;
+    text-align: center;
 }
 
-button{
+#main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+  
+}
+
+#inpt-btn-el , #clr-btn-el{
     background-color: #00b4d8;
     padding: 10px 20px;
     color: #ffffff;
@@ -28,7 +38,7 @@ button{
    
       
 }
-input{
+#input-el{
     font-size: large;
     padding: 5px 10px;
     text-align: center;

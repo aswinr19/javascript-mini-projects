@@ -1,7 +1,12 @@
 let myTodos = [];
 const inputEl = document.getElementById("input-el");
+const chkInputEl = document.getElementById("chk-btn-el");
 const inptBtnEl = document.getElementById("inpt-btn-el");
+const AllEl = document.getElementById("all-el");
+const pndgEl = document.getElementById("pndg-el");
+const cmpltEl = document.getElementById("cmplt-el");
 const clrBtnEl = document.getElementById("clr-btn-el");
+const moreEl = document.getElementById("more-el");
 const itemsEl = document.getElementById("items-el");
 
 const todosFromLocalStorage = JSON.parse(localStorage.getItem("myTodos"));
@@ -15,7 +20,7 @@ function render(todos) {
   let listItems = "";
 
   for (let i = 0; i < todos.length; i++) {
-    listItems += `<li> ${todos[i]} </li>`;
+    listItems += `<li> <input id="chk-btn-el" type="checkbox"> ${todos[i]}  <span id="more-el">...</span></li>`;
   }
   itemsEl.innerHTML = listItems;
 }
