@@ -13,4 +13,4 @@ First, go into your favorite terminal.
 Open directory in file explore , then navigate to the project folder that you want tou run .
 Double click on the index.html file.
 
-For project containing api keys ( weather-app-chrome-extension ) you need to provide your own api keys in order for the application to peoperly work.
+For project containing api keys ( eg: weather-app-chrome-extension ) you need to provide your own api keys in order for the application to peoperly work.
