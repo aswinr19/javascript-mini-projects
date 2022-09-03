@@ -83,10 +83,10 @@ function checkTodo(selectedTodo) {
   let id = selectedTodo.getAttribute("id");
   console.log(id);
   completedTodos.push(pendingTodos[id]);
-  pendingTodos[id].splice(id,1);
+  pendingTodos.splice(id,1);
   localStorage.setItem("compledTodos", JSON.stringify(completedTodos));
   localStorage.setItem("pendingTodos", JSON.stringify(pendingTodos));
-
+  render(pendingTodos);
 }
 
 clrBtnEl.addEventListener("click", function () {
