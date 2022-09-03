@@ -25,7 +25,21 @@ h2{
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
-  
+    min-height: 500px;
+    
+}
+
+#all-el , #pndg-el , #cmplt-el{
+    cursor: pointer;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#more-el{
+    cursor: pointer;
+    font-weight: bold;
+
 }
 
 #inpt-btn-el , #clr-btn-el{
@@ -34,10 +48,19 @@ h2{
     color: #ffffff;
     font-size: 18px;
     border: none;
-    border-radius: 5px; 
-   
-      
+    border-radius: 5px;    
 }
+
+#inpt-btn-el:hover {
+
+    background-color: #0077b6;
+} 
+
+#clr-btn-el:hover{
+    background-color: #0077b6;
+}
+
+
 #input-el{
     font-size: large;
     padding: 5px 10px;

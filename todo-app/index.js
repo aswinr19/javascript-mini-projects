@@ -2,13 +2,13 @@ let myTodos = [];
 let pendingTodos = [];
 let completedTodos = [];
 const inputEl = document.getElementById("input-el");
-const chkBoxEl = document.getElementById("chk-box-el");
+// const chkBoxEl = document.getElementById("chk-box-el");
 const inptBtnEl = document.getElementById("inpt-btn-el");
 const allEl = document.getElementById("all-el");
 const pndgEl = document.getElementById("pndg-el");
 const cmpltEl = document.getElementById("cmplt-el");
 const clrBtnEl = document.getElementById("clr-btn-el");
-const moreEl = document.getElementById("more-el");
+// const moreEl = document.getElementById("more-el");
 const itemsEl = document.getElementById("items-el");
 
 const todosFromLocalStorage = JSON.parse(localStorage.getItem("myTodos"));
@@ -39,8 +39,8 @@ function render(todos) {
     let listItems = "";
 
     for (let i = 0; i < todos.length; i++) {
-      listItems += `<li data-id="${i}"> <input id="chk-box-el" type="checkbox">
-       ${todos[i]}  <span id="more-el">...</span></li>`;
+      listItems += `<li data-id="${i}"> <input onclick="checkTodo(this)" type="checkbox" id="${i}">
+       ${todos[i]}  <span>...</span></li>`;
     }
     itemsEl.innerHTML = listItems;
   }
@@ -69,14 +69,25 @@ cmpltEl.addEventListener("click", function () {
   render(completedTodos);
 });
 
-chkBoxEl.addEventListener("click", function () {
-  console.log(this);
+// chkBoxEl.addEventListener("click", function () {
+//   console.log(this);
 
-  const id = this.getAttribute("data-id");
+//   const id = this.getAttribute("data-id");
 
+//   completedTodos.push(pendingTodos[id]);
+//   pendingTodos.splice(id,1);
+// });
+
+function checkTodo(selectedTodo) {
+  // console.log(selectedTodo);
+  let id = selectedTodo.getAttribute("id");
+  console.log(id);
   completedTodos.push(pendingTodos[id]);
-  pendingTodos.splice(id,1);
-});
+  pendingTodos[id].splice(id,1);
+  localStorage.setItem("compledTodos", JSON.stringify(completedTodos));
+  localStorage.setItem("pendingTodos", JSON.stringify(pendingTodos));
+
+}
 
 clrBtnEl.addEventListener("click", function () {
   localStorage.clear();
