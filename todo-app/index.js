@@ -19,14 +19,12 @@ function render(todos) {
 
     for (let i = 0; i < todos.length; i++) {
       listItems += ` <li class="${todos[i].status}"> 
-       <input type="checkbox" id="${i}" onclick="chcekTodo(this)" />
+       <input type="checkbox" class="check" id="${i}" onclick="chcekTodo(this)" />
         ${todos[i].value} 
-       <span id="${i}"> ...</span> </li>`;
+       </li> `;
     }
     itemsEl.innerHTML = listItems;
-  } else {
-    itemsEl.innerHTML = "<li>No items to display!</li>";
-  }
+  } 
 }
 
 inputEl.addEventListener("keydown", function (e) {

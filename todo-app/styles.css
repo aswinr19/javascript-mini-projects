@@ -1,78 +1,70 @@
-body , div {
-    padding: 0;
-    margin: 0;
-}
-
 body{
-    font-family: 'Quicksand', sans-serif;
-    background-color: #00b4d8;
-   
-}
-
-button,input{
-    font-family: 'Quicksand', sans-serif;
-}
-
-h2{
-    color: #ffffff;
-    font-size: 28px;
-    font-weight: bolder;
-    text-align: center;
-}
-
-#main{
+    margin: 0;
+    padding: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    min-height: 500px;
-    
-}
-
-#all-el , #pndg-el , #cmplt-el{
-    cursor: pointer;
-    font-weight: bold;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#more-el{
-    cursor: pointer;
-    font-weight: bold;
-
-}
-
-#inpt-btn-el , #clr-btn-el{
-    background-color: #00b4d8;
-    padding: 10px 20px;
-    color: #ffffff;
     font-size: 18px;
-    border: none;
-    border-radius: 5px;    
+    background-color: #219ebc;
+    font-family: 'Quicksand', sans-serif;
 }
 
-#inpt-btn-el:hover {
+.main{
+   
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #ffffff;
+    border-radius: 7px;
 
-    background-color: #0077b6;
-} 
-
-#clr-btn-el:hover{
-    background-color: #0077b6;
 }
-
+h2{
+    align-items: center;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 40px;
+}
 
 #input-el{
-    font-size: large;
-    padding: 5px 10px;
     text-align: center;
-}
-
-#items-el > li{
-    color:#000000;
-    list-style: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 452px;
 }
 
 span{
+    padding:28px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
 
-    padding-left: 15px;
+span:hover{
+    color: #219ebc;
+}
+
+
+li{
+    list-style: none;
+    font-size: 20px;
+}
+
+input,button {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 19px;
+}
+
+#space{
+
+    margin-bottom: 60px;
+}
+
+.check{
+
+    margin-right: 20px;
 }
