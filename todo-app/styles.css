@@ -71,3 +71,7 @@ input,button {
 .selected{
     color: #219ebc;
 }
+
+.error{
+    border: 2px solid #ff0000;
+}

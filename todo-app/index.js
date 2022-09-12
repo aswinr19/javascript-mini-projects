@@ -18,16 +18,26 @@ function render(todos) {
     let listItems = "";
 
     for (let i = 0; i < todos.length; i++) {
-      listItems += ` <li class="${todos[i].status}"> 
-       <input type="checkbox" class="check" id="${i}" onclick="chcekTodo(this)" />
-        ${todos[i].value} 
-       </li> `;
+      if(todos[i].status === "completed"){
+
+        listItems += ` <li class="${todos[i].status}"> 
+        <input type="checkbox" checked class="check" id="${i}" onclick="chcekTodo(this)" />
+         ${todos[i].value} 
+        </li> `;
+      }else{
+        listItems += ` <li class="${todos[i].status}"> 
+        <input type="checkbox" class="check" id="${i}" onclick="chcekTodo(this)" />
+         ${todos[i].value} 
+        </li> `;
+      }
+      
     }
     itemsEl.innerHTML = listItems;
-  } 
+  }
 }
 
 inputEl.addEventListener("keydown", function (e) {
+  inputEl.classList.remove("error");
   const content = inputEl.value.trim();
 
   if (e.key === "Enter" && content && myTodos.length <= 10) {
@@ -35,24 +45,29 @@ inputEl.addEventListener("keydown", function (e) {
     localStorage.setItem("myTodos", JSON.stringify(myTodos));
     inputEl.value = "";
     render(myTodos);
+
+    pndgEl.classList.remove("selected");
+    cmpltEl.classList.remove("selected");
+    allEl.classList.add("selected");
+
+  } else if (e.key === "Enter") {
+    inputEl.classList.add("error");
   }
 });
 
 allEl.addEventListener("click", function () {
- 
-  pndgEl.classList.remove('selected');
-  cmpltEl.classList.remove('selected');
-  allEl.classList.add('selected');
+  pndgEl.classList.remove("selected");
+  cmpltEl.classList.remove("selected");
+  allEl.classList.add("selected");
   render(myTodos);
 });
 
 pndgEl.addEventListener("click", function () {
   let pendingTodos = [];
 
- 
-  allEl.classList.remove('selected');
-  cmpltEl.classList.remove('selected');
-  pndgEl.classList.add('selected');
+  allEl.classList.remove("selected");
+  cmpltEl.classList.remove("selected");
+  pndgEl.classList.add("selected");
 
   myTodos.forEach((todo) => {
     if (todo.status === "pending") pendingTodos.push(todo);
@@ -63,14 +78,20 @@ pndgEl.addEventListener("click", function () {
 cmpltEl.addEventListener("click", function () {
   let compledtedTodos = [];
 
-  pndgEl.classList.remove('selected');
-  allEl.classList.remove('selected');
-  cmpltEl.classList.add('selected');
+  pndgEl.classList.remove("selected");
+  allEl.classList.remove("selected");
+  cmpltEl.classList.add("selected");
 
   myTodos.forEach((todo) => {
     if (todo.status === "completed") compledtedTodos.push(todo);
   });
   render(compledtedTodos);
+
+  // const checkBox = document.querySelectorAll('.check');
+  // checkBox.forEach( ele => {
+  //     ele.setAttribute("checked",true);
+  // });
+
 });
 
 function chcekTodo(selectedTodo) {
@@ -80,7 +101,7 @@ function chcekTodo(selectedTodo) {
     myTodos[id].status = "completed";
 
     localStorage.setItem("myTodos", JSON.stringify(myTodos));
-    render(myTodos);
+    // render(myTodos);
     // console.log(myTodos);
   }
 }
