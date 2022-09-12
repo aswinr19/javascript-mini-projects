@@ -10,26 +10,28 @@ body{
 .main{
    
     position: absolute;
-    height: 500px;
     width: 500px;
+    height: 500px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: #ffffff;
     border-radius: 7px;
+    overflow: hidden;
 
 }
 h2{
-    align-items: center;
+    position:absolute;
+    left: 46%;
     color: #ffffff;
     font-size: 30px;
     font-weight: bold;
-    margin-top: 40px;
+    margin-top: 160px;
 }
 
 #input-el{
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
     margin-bottom: 30px;
     margin-left: 20px;
     margin-right: 20px;
@@ -40,14 +42,13 @@ h2{
 
 span{
     padding:28px;
-    margin-bottom: 50px;
     cursor: pointer;
+    color: #484444;
 }
 
 span:hover{
     color: #219ebc;
 }
-
 
 li{
     list-style: none;
@@ -60,11 +61,13 @@ input,button {
 }
 
 #space{
-
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .check{
-
     margin-right: 20px;
+}
+
+.selected{
+    color: #219ebc;
 }
